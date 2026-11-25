@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahana Kuttikulangara | Meteorologist</title>
+<meta name="description" content="Ahana Kuttikulangara: meteorologist and research scientist at the University of Cologne working on turbulence in the stable Arctic boundary layer and stochastic parameterisation in ICON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c2430;
+    --muted: #5b6676;
+    --line: #e3e7ec;
+    --bg: #fbfcfd;
+    --accent: #1f5f7a;
+    --accent-soft: #e8f1f5;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Navigation */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(251,252,253,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .inner {
+    max-width: 920px; margin: 0 auto; padding: 0.8rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  }
+  nav .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; color: var(--ink); font-size: 1.05rem; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  nav ul a { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  main { max-width: 920px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* Header */
+  header.hero {
+    display: grid; grid-template-columns: 180px 1fr; gap: 2.5rem; align-items: center;
+    padding: 3.5rem 0 2.5rem;
+  }
+  .photo {
+    width: 180px; height: 180px; border-radius: 50%;
+    object-fit: cover; background: var(--accent-soft);
+    border: 4px solid #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .initials {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Source Serif 4", Georgia, serif; font-size: 3.5rem;
+  }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif; font-weight: 600;
+    font-size: 2.4rem; line-height: 1.15; margin: 0 0 0.3rem;
+  }
+  .role { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: 0; }
+  .affil { color: var(--muted); margin: 0.2rem 0 1.2rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .links a {
+    display: inline-block; padding: 0.35rem 0.9rem;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: #fff; color: var(--ink); font-size: 0.88rem; font-weight: 500;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .links a.primary:hover { background: #174b61; color: #fff; }
+
+  /* Sections */
+  section { padding: 2.2rem 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif; font-weight: 600;
+    font-size: 1.55rem; margin: 0 0 1.2rem;
+  }
+  h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+  p { margin: 0 0 1rem; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+  .tags li {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 0.25rem 0.8rem; border-radius: 6px; font-size: 0.88rem; font-weight: 500;
+  }
+
+  .callout {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--accent);
+    border-radius: 8px; padding: 1.1rem 1.3rem; margin-bottom: 1.4rem;
+  }
+  .callout .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+
+  /* Timeline entries */
+  .entry { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; margin-bottom: 1.4rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .when { color: var(--muted); font-size: 0.9rem; padding-top: 0.05rem; }
+  .where { color: var(--muted); font-size: 0.93rem; margin: 0.1rem 0 0.3rem; }
+  .entry p { margin: 0.2rem 0 0; font-size: 0.95rem; }
+
+  /* Publications */
+  ol.pubs { margin: 0; padding-left: 1.3rem; }
+  ol.pubs li { margin-bottom: 1.1rem; padding-left: 0.3rem; }
+  ol.pubs .title { font-weight: 600; }
+  ol.pubs .venue { font-style: italic; }
+  ol.pubs .me { font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .doi { font-size: 0.88rem; }
+
+  /* Talks */
+  ul.talks { list-style: none; margin: 0; padding: 0; }
+  ul.talks li { margin-bottom: 1rem; display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; }
+  ul.talks .ev { font-weight: 600; font-size: 0.9rem; color: var(--accent); }
+  ul.talks .t { display: block; }
+  ul.talks .d { color: var(--muted); font-size: 0.9rem; }
+
+  .award { display: inline-block; background: #fff6e0; color: #8a5a00; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 4px; margin-left: 0.4rem; vertical-align: middle; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.3rem; }
+  .card h3 { margin-bottom: 0.3rem; }
+  .card p { font-size: 0.93rem; margin: 0; }
+
+  dl.skills { display: grid; grid-template-columns: 150px 1fr; gap: 0.6rem 1.5rem; margin: 0; }
+  dl.skills dt { font-weight: 600; font-size: 0.93rem; }
+  dl.skills dd { margin: 0; font-size: 0.95rem; }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 2rem 1rem; border-top: 1px solid var(--line); }
+
+  @media (max-width: 680px) {
+    nav ul { display: none; }
+    header.hero { grid-template-columns: 1fr; text-align: center; padding-top: 2.5rem; }
+    .photo, .initials { margin: 0 auto; width: 140px; height: 140px; }
+    .links { justify-content: center; }
+    h1 { font-size: 2rem; }
+    .entry, ul.talks li, dl.skills { grid-template-columns: 1fr; gap: 0.2rem; }
+    .grid2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="brand">Ahana Kuttikulangara</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <!-- Upload a square photo named photo.jpg next to this file. Until then, initials are shown. -->
+    <div>
+      <img class="photo" src="photo.jpg" alt="Photo of Ahana Kuttikulangara"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="initials" style="display:none;">AK</div>
+    </div>
+    <div>
+      <h1>Ahana Kuttikulangara</h1>
+      <p class="role">Research Scientist &middot; Meteorologist</p>
+      <p class="affil">Institute of Geophysics and Meteorology, University of Cologne, Germany</p>
+      <div class="links">
+        <a class="primary" href="CV_ahana.pdf" target="_blank">Download CV</a>
+        <a href="mailto:akuttiku@uni-koeln.de">Email</a>
+        <a href="https://orcid.org/0000-0001-7910-4483" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/ahana-kuttikulangara-836aa911b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a meteorologist working on atmospheric turbulence. As a Research Assistant at the Institute of Geophysics and Meteorology, University of Cologne, I study turbulence in the stable Arctic boundary layer. I combine observations from the MOSAiC expedition with the ICON model to develop stochastic turbulence parameterisations.</p>
+    <p>I received my PhD in Meteorology from Cochin University of Science and Technology (CUSAT), India. My thesis was on turbulence in the tropical troposphere, using the 205&nbsp;MHz Stratosphere–Troposphere wind profiler radar at Kochi. My work spans radar and in-situ observations, machine learning, and numerical weather and climate models (ICON, WRF, RegCM).</p>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="callout">
+      <div class="label">Current project</div>
+      <h3>TurbO-Arctic: Turbulence in Arctic regions, data–model fusion for optimal parameterisation</h3>
+      <p style="margin:0.4rem 0 0; font-size:0.95rem;">Turbulence intermittency and its triggers in the stable Arctic boundary layer, evaluation of stability functions using MOSAiC observations, and stochastic parameterisation in ICON. The work runs on the Levante HPC system.</p>
+    </div>
+    <h3 style="margin-bottom:0.7rem;">Research interests</h3>
+    <ul class="tags">
+      <li>Boundary layer meteorology</li>
+      <li>Turbulence</li>
+      <li>Surface layer parameterisation</li>
+      <li>Stochastic parameterisation</li>
+      <li>ICON</li>
+      <li>Wind profiler radar</li>
+      <li>Machine learning</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs" reversed>
+      <li>
+        <span class="me">Ahana, K. K.</span>, Joy, A., Paul, A., Satheesan, K., Sujithlal, S. P., &amp; Kottayil, A. (2025).
+        <span class="title">Insights into turbulence estimated using S–T radar: A machine learning approach with XGBoost and SHAP.</span>
+        <span class="venue">IEEE Transactions on Geoscience and Remote Sensing</span>, 63, 1–6.
+        <br><a class="doi" href="https://doi.org/10.1109/TGRS.2025.3608479" target="_blank" rel="noopener">doi:10.1109/TGRS.2025.3608479</a>
+      </li>
+      <li>
+        Sujithlal, S. P., <span class="me">Ahana, K. K.</span>, Satheesan, K., &amp; Kottayil, A. (2024).
+        <span class="title">Identification of the tropopause using the Jenks natural breaks classification from 205 MHz Stratosphere–Troposphere wind profiler radar.</span>
+        <span class="venue">IEEE Transactions on Geoscience and Remote Sensing</span>.
+        <br><a class="doi" href="https://doi.org/10.1109/TGRS.2024.3386564" target="_blank" rel="noopener">doi:10.1109/TGRS.2024.3386564</a>
+      </li>
+      <li>
+        <span class="me">Ahana, K. K.</span>, Satheesan, K., &amp; Kottayil, A. (2024).
+        <span class="title">Climatology of turbulent kinetic energy dissipation rate in the middle troposphere using the 205 MHz S–T radar at Kochi, India.</span>
+        <span class="venue">Journal of Atmospheric and Solar-Terrestrial Physics</span>, 256, 106206.
+        <br><a class="doi" href="https://doi.org/10.1016/j.jastp.2024.106206" target="_blank" rel="noopener">doi:10.1016/j.jastp.2024.106206</a>
+      </li>
+      <li>
+        <span class="me">Ahana, K. K.</span>, Satheesan, K., Athulya, S., &amp; Kottayil, A. (2023).
+        <span class="title">Turbulent kinetic energy dissipation rate in the lower troposphere using the 205 MHz radar at Kochi, India.</span>
+        <span class="venue">Journal of Atmospheric and Solar-Terrestrial Physics</span>, 251, 106133.
+        <br><a class="doi" href="https://doi.org/10.1016/j.jastp.2023.106133" target="_blank" rel="noopener">doi:10.1016/j.jastp.2023.106133</a>
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Conference presentations</h2>
+    <ul class="talks">
+      <li><span class="ev">km-scale Summit 2026</span><div><span class="t">Evaluation of the stability functions in the stable Arctic boundary layer for stochastic turbulence parameterization development</span><span class="d">km-scale Global Modelling Summit, Hamburg, Germany · July 2026</span></div></li>
+      <li><span class="ev">ParaChute 2026</span><div><span class="t">Understanding intermittent turbulence and the evaluation of stability functions in stable Arctic boundary layer <span class="award">Best poster award</span></span><span class="d">Reading, UK · July 2026</span></div></li>
+      <li><span class="ev">EGU 2026</span><div><span class="t">Investigating the potential triggering mechanisms of turbulence intermittency in the Arctic boundary layer</span><span class="d">Vienna, Austria · May 2026</span></div></li>
+      <li><span class="ev">AMS BLT 2025</span><div><span class="t">Analyzing turbulence intermittency and sub-mesoscale triggers in the Arctic</span><span class="d">25th Symposium on Boundary Layers and Turbulence, Torino, Italy · June 2025</span></div></li>
+      <li><span class="ev">EGU 2024</span><div><span class="t">Climatology of lower tropospheric turbulence at Kochi using S-T radar</span><span class="d">Vienna, Austria · April 2024</span></div></li>
+      <li><span class="ev">MARICON 2024</span><div><span class="t">Understanding mid-tropospheric turbulence from 205 MHz S-T radar at Kochi, India</span><span class="d">CUSAT, Kochi, India · April 2024</span></div></li>
+      <li><span class="ev">INTROMET 2021</span><div><span class="t">Estimation of boundary layer height from 205 MHz wind profiler radar and radiosonde at Cochin</span><span class="d">International Symposium on Tropical Meteorology, CUSAT, India · November 2021</span></div></li>
+      <li><span class="ev">TROPMET 2020</span><div><span class="t">Turbulence study over Cochin for consecutive three years</span><span class="d">NESAC, Shillong, India (virtual) · December 2020</span></div></li>
+      <li><span class="ev">MARICON 2019</span><div><span class="t">Study of turbulence in the lower troposphere using high-resolution radar data at Cochin</span><span class="d">CUSAT, Kochi, India · December 2019</span></div></li>
+      <li><span class="ev">SPARC GA 2018</span><div><span class="t">Turbulence parameter estimation from concurrent measurements of radar and radiosonde</span><span class="d">6th SPARC General Assembly, Kyoto, Japan · October 2018</span></div></li>
+    </ul>
+  </section>
+
+  <section id="campaigns">
+    <h2>Field campaigns</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>BRAVEX23</h3>
+        <p class="where">Balloon and Radar Vertical velocity EXperiment · Nov–Dec 2023</p>
+        <p>24-hour S-T radar observations alongside eight radiosonde launches.</p>
+      </div>
+      <div class="card">
+        <h3>Mission Thunder</h3>
+        <p class="where">Post-monsoon thunderstorms · November 2022</p>
+        <p>Multiplatform observation with S-T radar, microwave radiometer, disdrometer, ceilometer, MRR and AWS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="when">Jan 2025 – present</div>
+      <div><h3>Research Assistant</h3><p class="where">Institute of Geophysics and Meteorology, University of Cologne</p><p>TurbO-Arctic project: MOSAiC, ICON, stochastic parameterisation, HPC (Levante).</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">Oct – Nov 2024</div>
+      <div><h3>Visiting Lecturer</h3><p class="where">Department of Geology, Mahatma Gandhi University, India</p><p>Taught Climatology for the MSc Applied Geology programme.</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">Jul 2017 – Jul 2024</div>
+      <div><h3>Research Scholar</h3><p class="where">Department of Atmospheric Sciences, CUSAT, India</p><p>Thesis: <em>Turbulence in the troposphere over tropics using VHF radar</em>.</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">Jun 2017 – Sep 2020</div>
+      <div><h3>Project Junior Research Fellow</h3><p class="where">Department of Atmospheric Sciences, CUSAT, India</p><p>High-resolution climate modelling for southern peninsular India (RegCM, CMIP5).</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">Jan – Mar 2016</div>
+      <div><h3>Intern</h3><p class="where">Advanced Centre for Atmospheric Radar Research (ACARR), CUSAT</p><p>Relative roles of depth versus intensity of westerlies in monsoon precipitation.</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="when">2017 – 2025</div>
+      <div><h3>PhD in Meteorology</h3><p class="where">Cochin University of Science and Technology, Kerala, India</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">2014 – 2016</div>
+      <div><h3>MSc in Meteorology <span class="award">University first rank</span></h3><p class="where">Cochin University of Science and Technology, Kerala, India</p></div>
+    </div>
+    <div class="entry">
+      <div class="when">2011 – 2014</div>
+      <div><h3>BSc in Physics</h3><p class="where">Nirmalagiri College, Kannur University, Kerala, India</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Programming</dt><dd>Python, MATLAB, Bash</dd>
+      <dt>Models</dt><dd>ICON, WRF, RegCM</dd>
+      <dt>Data</dt><dd>Wind profiler radar, sonic anemometer, radiosonde, radiometer, aethalometer; satellite (HDF), reanalysis (NetCDF, GRIB)</dd>
+      <dt>Tools</dt><dd>Linux, HPC, CDO, GrADS, Origin, LaTeX</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Institute of Geophysics and Meteorology<br>University of Cologne, Germany</p>
+    <p><a href="mailto:akuttiku@uni-koeln.de">akuttiku@uni-koeln.de</a></p>
+  </section>
+
+</main>
+
+<footer>© 2026 Ahana Kuttikulangara</footer>
+
+</body>
+</html>
