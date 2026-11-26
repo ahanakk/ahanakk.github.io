@@ -12,7 +12,7 @@
   :root {
     --ink: #1c2430;
     --muted: #5b6676;
-    --line: #e3e7ec;``````````````````````````````````````````````````````````````````````````````````````
+    --line: #e3e7ec;
     --bg: #fbfcfd;
     --accent: #1f5f7a;
     --accent-soft: #e8f1f5;
@@ -268,6 +268,7 @@
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
   .lightbox p { color: #e6ecf8; margin-top: 0.9rem; font-size: 0.95rem; }
+  .float-quote.pq { position: static; max-width: 560px; margin: 0.4rem 0 2.2rem; background: rgba(12,31,79,0.93); }
 </style>
 </head>
 <body>
@@ -317,7 +318,6 @@
       <p class="tagline">Turbulence in the stable Arctic boundary layer &middot; MOSAiC observations &middot; stochastic parameterisation in ICON</p>
     </div>
     <figure class="float-quote q1" data-quotes="0,2"><blockquote></blockquote><figcaption></figcaption></figure>
-    <figure class="float-quote q2" data-quotes="1,3"><blockquote></blockquote><figcaption></figcaption></figure>
   </header>
 
   <section id="about" data-page="about">
@@ -486,6 +486,7 @@
       <li>Amateur dancer</li>
       <li>Artist &amp; painter</li>
     </ul>
+    <figure class="float-quote pq" data-quotes="1,3"><blockquote></blockquote><figcaption></figcaption></figure>
     <h3 style="margin-bottom:0.9rem;">My paintings</h3>
     <!-- Upload your paintings as painting1.jpg, painting2.jpg ... painting6.jpg. Missing ones are hidden automatically. Edit the captions below. -->
     <div class="gallery">
@@ -682,8 +683,8 @@
   var Q = [
     ["Big whirls have little whirls that feed on their velocity, and little whirls have lesser whirls and so on to viscosity.", "Lewis Fry Richardson, 1922"],
     ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche, Thus Spoke Zarathustra"],
-    // ["For my part I know nothing with any certainty, but the sight of the stars makes me dream.", "Vincent van Gogh, letter to Theo, 1888"],
-    // ["I am always doing what I can\u2019t do yet in order to learn how to do it.", "Vincent van Gogh, letter to Anthon van Rappard, 1885"]
+    ["For my part I know nothing with any certainty, but the sight of the stars makes me dream.", "Vincent van Gogh, letter to Theo, 1888"],
+    ["I am always doing what I can\u2019t do yet in order to learn how to do it.", "Vincent van Gogh, letter to Anthon van Rappard, 1885"]
   ];
   document.querySelectorAll(".float-quote[data-quotes]").forEach(function (card, n) {
     var list = card.getAttribute("data-quotes").split(",").map(Number), i = 0;
